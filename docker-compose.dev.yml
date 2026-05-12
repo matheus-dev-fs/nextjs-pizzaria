@@ -12,3 +12,27 @@ services:
       - .:/app
       - /app/node_modules
       - /app/.next
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    container_name: postgres-pizzaria
+    image: postgres:17
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-pizzaria_db}
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-pizzaria_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db_data:
