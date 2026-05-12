@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 export const Header: React.FC = () => {
     return (
@@ -9,8 +10,8 @@ export const Header: React.FC = () => {
                 <div className="text-2xl font-bold">Pizzaria</div>
             </Link>
             <div className="flex gap-2">
-                <button>Login / Cadastro</button>
-                <button>Carrinho</button>
+                <Button>Login / Cadastro</Button>
+                <Button>Carrinho</Button>
             </div>
         </header>
     );
