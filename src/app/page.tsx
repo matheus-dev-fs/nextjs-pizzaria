@@ -11,7 +11,7 @@ const Page = async () => {
         <div>
             <Header />
             <main className="container mx-auto mb-10">
-                <PizzaList pizzas={data} />
+                <PizzaList pizzas={data.pizzas} />
             </main>
         </div>
     );
