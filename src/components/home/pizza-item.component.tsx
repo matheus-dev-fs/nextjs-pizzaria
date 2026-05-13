@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Product } from "../../../generated/prisma/client";
 import { Button } from "../ui/button";
+import { decimalToMoney } from "@/utils/convert.util";
 
 type Props = {
     data: Product;
@@ -23,7 +24,7 @@ export const PizzaItem: React.FC<Props> = ({ data }) => {
                 className="w-full mb-3"
             />
             <div className="text-lg font-bold">{name}</div>
-            <div>{price.toString()}</div>
+            <div>{decimalToMoney(price)}</div>
             <div className="truncate mb-3">{ingredients}</div>
             <div className="text-center">
                 <Button onClick={handleAddToCart}>
