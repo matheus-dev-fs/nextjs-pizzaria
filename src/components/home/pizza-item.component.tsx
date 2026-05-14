@@ -4,15 +4,24 @@ import Image from "next/image";
 import { Product } from "../../../generated/prisma/client";
 import { Button } from "../ui/button";
 import { decimalToMoney } from "@/utils/convert.util";
+import { useCart } from "@/stores/cart.store";
+import { CartStore } from "@/types/cart-store.type";
 
 type Props = {
     data: Product;
 }
 
 export const PizzaItem: React.FC<Props> = ({ data }) => {
-    const { image, name, price, ingredients } = data;
+    const { id, image, name, price, ingredients } = data;
+    const cart: CartStore = useCart();
 
-    const handleAddToCart = (): void => { };
+    const handleAddToCart = (): void => {
+        cart.addItem({
+            productId: id,
+            quantity: 1
+        });
+        cart.setOpen(true);
+    };
 
     return (
         <div className="text-sm bg-secondary p-4 rounded-md">
