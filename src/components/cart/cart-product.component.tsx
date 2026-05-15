@@ -2,12 +2,12 @@
 
 import { CartItem } from "@/interfaces/cart-item.interface";
 import { useProducts } from "@/stores/products.store";
-import { ProductsStore } from "@/types/products-store.type";
+import { ProductsStore } from "@/types/stores/products-store.type";
 import { Product } from "../../../generated/prisma/client";
 import Image from "next/image";
 import { decimalToMoney } from "@/utils/convert.util";
 import { Button } from "../ui/button";
-import { CartStore } from "@/types/cart-store.type";
+import { CartStore } from "@/types/stores/cart-store.type";
 import { useCart } from "@/stores/cart.store";
 
 type Props = {

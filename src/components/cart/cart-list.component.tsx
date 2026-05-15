@@ -2,8 +2,8 @@
 
 import { useCart } from "@/stores/cart.store";
 import { Button } from "../ui/button";
-import { CartStore } from "@/types/cart-store.type";
-import { ProductsStore } from "@/types/products-store.type";
+import { CartStore } from "@/types/stores/cart-store.type";
+import { ProductsStore } from "@/types/stores/products-store.type";
 import { useProducts } from "@/stores/products.store";
 import { Dispatch, JSX, SetStateAction, useEffect, useState } from "react";
 import { CartProduct } from "./cart-product.component";
