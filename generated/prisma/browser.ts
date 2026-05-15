@@ -37,3 +37,8 @@ export type Order = Prisma.OrderModel
  * 
  */
 export type OrderProducts = Prisma.OrderProductsModel
+/**
+ * Model RefreshToken
+ * 
+ */
+export type RefreshToken = Prisma.RefreshTokenModel
