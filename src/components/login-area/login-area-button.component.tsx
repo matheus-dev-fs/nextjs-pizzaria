@@ -15,7 +15,7 @@ export const LoginAreaButton: React.FC<Props> = ({ initialState }) => {
     const [authState, setAuthState]: [boolean, Dispatch<SetStateAction<boolean>>] = useState<boolean>(initialState);
 
     useEffect((): void => {
-        setAuthState(auth.accessToken ? true : false);
+        setAuthState(!!auth.accessToken);
     }, [auth]);
 
 
