@@ -1,14 +1,15 @@
 import { ComponentProps } from "react";
 import { Input } from "../ui/input";
 import { checkFieldError } from "@/utils/field.util";
+import { ErrorField } from "@/types/errors/error-field.type";
 
 type Props = ComponentProps<"input"> & {
     name: string;
-    errors: any;
+    errors: ErrorField | null;
 }
 
 export const CustomInput: React.FC<Props> = (props) => {
-    const error = checkFieldError(props.name, props.errors);
+    const error: string | false = checkFieldError(props.name, props.errors);
 
     return (
         <>

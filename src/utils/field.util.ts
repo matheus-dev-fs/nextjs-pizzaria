@@ -1,4 +1,6 @@
-export const checkFieldError = (fieldName: string, errors: any) => {
+import { ErrorField } from "@/types/errors/error-field.type";
+
+export const checkFieldError = (fieldName: string, errors: ErrorField | null): string | false => {
     if (!errors) {
         return false;
     }
